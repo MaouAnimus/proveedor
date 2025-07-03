@@ -1,4 +1,4 @@
-package com.ecomarket.model;
+package com.ecomarket.proveedor.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
