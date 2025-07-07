@@ -34,11 +34,11 @@ public class ProveedorController {
     
     @PostMapping()
     public ResponseEntity<Proveedor> crearProveedor(@RequestBody Proveedor proveedor) {
-        Proveedor nuevoProveedor = proveedorService.crearProveedor(proveedor);
-        if (nuevoProveedor != null) {
-            return new ResponseEntity<>(nuevoProveedor, HttpStatus.CREATED);
-        }
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        try {
+            return new ResponseEntity<>(proveedorService.crearProveedor(proveedor),HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.CONFLICT);
+        }    
     }
 
     @GetMapping("/{id}")
