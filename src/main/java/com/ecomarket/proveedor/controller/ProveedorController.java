@@ -42,7 +42,7 @@ public class ProveedorController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Proveedor> getById(@PathVariable Long id) {
+    public ResponseEntity<Proveedor> getById(@PathVariable Long id,@RequestBody(required = false) Proveedor proveedores) {
         Proveedor proveedor = proveedorService.findById(id);
         if (proveedor != null) {
             return new ResponseEntity<>(proveedor, HttpStatus.OK);
